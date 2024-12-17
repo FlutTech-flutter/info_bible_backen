@@ -28,7 +28,16 @@ const createProduct = async (req, res) => {
   }
 }
 
+const getPostsByCategory= async (req, res)=>{
+  try {
+    const { id } = req.params;
 
+    const product = await Product.find({categories	:id});
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
 const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
@@ -62,5 +71,6 @@ module.exports = {
   getProductById,
   createProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  getPostsByCategory
 }
