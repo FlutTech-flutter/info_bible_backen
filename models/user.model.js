@@ -43,13 +43,10 @@ const userSchema = new mongoose.Schema({
             default: false
         }
     }],
-    orders: [{
+   
+    favorites: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Order'
-    }],
-    wishlist: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product'
+        ref: 'Posts'
     }],
     createdAt: {
         type: Date,

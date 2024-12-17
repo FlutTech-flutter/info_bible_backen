@@ -7,7 +7,7 @@ const productRoute = require("./routes/post.route.js");
 const userRoute = require("./routes/user.route.js");
 // const cartRoute = require("./routes/cart.route.js");
 // const orderRoute = require("./routes/order.route.js");
-// const categoryRoute = require("./routes/category.route.js");
+ const categoryRoute = require("./routes/category.route.js");
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -17,7 +17,7 @@ app.use("/api/posts", productRoute);
 app.use("/api/users", userRoute);
 // app.use("/api/cart", cartRoute);
 // app.use("/api/orders", orderRoute);
-// app.use("/api/categories", categoryRoute);
+ app.use("/api/categories", categoryRoute);
 
 mongoose
     .connect('mongodb+srv://jiogracejio:amulbaby@cluster-01.n0tux.mongodb.net/infobible?retryWrites=true&w=majority&appName=cluster-01')
