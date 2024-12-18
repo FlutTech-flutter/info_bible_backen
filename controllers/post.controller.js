@@ -28,11 +28,23 @@ const createProduct = async (req, res) => {
   }
 }
 
-const getPostsByCategory= async (req, res)=>{
+const getPostsByCategory = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const product = await Product.find({categories	:id});
+    const product = await Product.find({ categories: id });
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
+const getFeaturedPosts = async (req, res) => {
+
+  try {
+    // const { id } = req.params;
+
+    const product = await Product.find({ featured: true });
     res.status(200).json(product);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -72,5 +84,6 @@ module.exports = {
   createProduct,
   updateProduct,
   deleteProduct,
-  getPostsByCategory
+  getPostsByCategory,
+  getFeaturedPosts
 }
