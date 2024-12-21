@@ -20,13 +20,13 @@ app.use("/api/users", userRoute);
 app.use("/api/categories", categoryRoute);
 
 mongoose
-    .connect('mongodb+srv://jiogracejio:amulbaby@cluster-01.n0tux.mongodb.net/infobible?retryWrites=true&w=majority&appName=cluster-01')
+    .connect(process.env.DBURL)
     .then(() => {
-        console.log(process.env.DBURL);
+        // console.log(process.env.DBURL);
         console.log("connected to database");
 
-        app.listen(3000, () => {
-            console.log("server is running on port ${3000}");
+        app.listen(80, () => {
+            console.log("server is running on port ${80}");
         });
     })
     .catch(() => console.log("connection failed"));

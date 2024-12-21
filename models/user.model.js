@@ -11,10 +11,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    isAdmin:{
-        type:Boolean,
-        required:true,
-        default:false,
+    isAdmin: {
+        type: Boolean,
+        required: true,
+        default: false,
 
     },
     email: {
@@ -43,7 +43,7 @@ const userSchema = new mongoose.Schema({
             default: false
         }
     }],
-   
+
     favorites: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Posts'
