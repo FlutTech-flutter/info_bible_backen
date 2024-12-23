@@ -50,6 +50,19 @@ const getFeaturedPosts = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 }
+const getPostsByTags = async (req, res) => {
+
+  try {
+    const { tag } = req.params;
+
+    const product = await Product.find({ tags: tag });
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
+
 const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;
@@ -85,5 +98,6 @@ module.exports = {
   updateProduct,
   deleteProduct,
   getPostsByCategory,
-  getFeaturedPosts
+  getFeaturedPosts,
+  getPostsByTags,
 }
